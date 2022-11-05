@@ -10,11 +10,18 @@ Easily split Date only fields and deal with them.
 Add to your dependencies:
 ```dart
 dependencies:
-    date_only_field: ^0.0.5
+    date_only_field: ^0.0.6
 ```
 Import the package:
 ```dart
+/// Use this if you need to import Date field only
 import 'package:date_only_field/date_only_field.dart';
+
+/// Use this if you need to import Date field with duraion extensions
+import 'package:date_only_field/date_only_field_with_extensions.dart';
+
+/// Use this if you need to import duraion extensions only
+import 'package:date_only_field/num_durations_extensions.dart';
 ```
 
 ## Usage
