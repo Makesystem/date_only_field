@@ -1,0 +1,21 @@
+name: date_field
+description: A Date only flutter field (Pure dart)
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: '>=2.19.0-362.0.dev <3.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  intl: ^0.17.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.1
+
+
+flutter:
