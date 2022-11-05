@@ -20,7 +20,8 @@ class Date implements Comparable<Date> {
     _day = day;
   }
 
-  Date.withFields({required int year, int month = 1, int day = 1}) : this(year, month, day);
+  Date.withFields({required int year, int month = 1, int day = 1})
+      : this(year, month, day);
 
   /// Creates a time of day based on the given time.
   ///
@@ -55,8 +56,14 @@ class Date implements Comparable<Date> {
     }
   }
 
-  Date.fromMillisecondsSinceEpoch(int millisecondsSinceEpoch, {bool isUtc = false}) : this.fromDateTime(DateTime.fromMillisecondsSinceEpoch(millisecondsSinceEpoch));
-  Date.fromMicrosecondsSinceEpoch(int microsecondsSinceEpoch, {bool isUtc = false}) : this.fromDateTime(DateTime.fromMicrosecondsSinceEpoch(microsecondsSinceEpoch));
+  Date.fromMillisecondsSinceEpoch(int millisecondsSinceEpoch,
+      {bool isUtc = false})
+      : this.fromDateTime(
+            DateTime.fromMillisecondsSinceEpoch(millisecondsSinceEpoch));
+  Date.fromMicrosecondsSinceEpoch(int microsecondsSinceEpoch,
+      {bool isUtc = false})
+      : this.fromDateTime(
+            DateTime.fromMicrosecondsSinceEpoch(microsecondsSinceEpoch));
 
   /// Returns a new TimeOfDay with the hour and/or minute replaced.
   Date copyWith({int? year, int? month, int? day}) {
@@ -185,9 +192,11 @@ class Date implements Comparable<Date> {
 
   Date add(dynamic other) {
     if (other is Date) {
-      return Date(year + other.year, (month) + (other.month), (day) + (other.day));
+      return Date(
+          year + other.year, (month) + (other.month), (day) + (other.day));
     } else if (other is DateTime) {
-      return Date(year + other.year, (month) + (other.month), (day) + (other.day));
+      return Date(
+          year + other.year, (month) + (other.month), (day) + (other.day));
     } else if (other is Duration) {
       return Date(year, month, (day) + (other.inDays));
     } else if (other is num) {
@@ -200,9 +209,11 @@ class Date implements Comparable<Date> {
 
   Date subtract(dynamic other) {
     if (other is Date) {
-      return Date(year - other.year, (month) - (other.month), max(1, (day) - (other.day)));
+      return Date(year - other.year, (month) - (other.month),
+          max(1, (day) - (other.day)));
     } else if (other is DateTime) {
-      return Date(year - other.year, (month) - (other.month), max(1, (day) - (other.day)));
+      return Date(year - other.year, (month) - (other.month),
+          max(1, (day) - (other.day)));
     } else if (other is Duration) {
       return Date(year, month, (day) - (other.inDays));
     } else if (other is num) {
@@ -244,7 +255,8 @@ class Date implements Comparable<Date> {
 
   /// The last day of a given month
   Date get lastDayOfMonth {
-    var beginningNextMonth = (month < 12) ? Date(year, month + 1, 1) : Date(year + 1, 1, 1);
+    var beginningNextMonth =
+        (month < 12) ? Date(year, month + 1, 1) : Date(year + 1, 1, 1);
     return beginningNextMonth - 1.days;
   }
 
@@ -323,7 +335,9 @@ class Date implements Comparable<Date> {
   }
 
   static Date getLastDayOfMonth(Date date) {
-    var beginningNextMonth = (date.month < 12) ? Date(date.year, date.month + 1, 1) : Date(date.year + 1, 1, 1);
+    var beginningNextMonth = (date.month < 12)
+        ? Date(date.year, date.month + 1, 1)
+        : Date(date.year + 1, 1, 1);
     return beginningNextMonth - 1.days;
   }
 
@@ -378,9 +392,11 @@ extension NumDurations on num {
 
   Duration get seconds => Duration(milliseconds: (this * 1000).round());
 
-  Duration get minutes => Duration(seconds: (this * Duration.secondsPerMinute).round());
+  Duration get minutes =>
+      Duration(seconds: (this * Duration.secondsPerMinute).round());
 
-  Duration get hours => Duration(minutes: (this * Duration.minutesPerHour).round());
+  Duration get hours =>
+      Duration(minutes: (this * Duration.minutesPerHour).round());
 
   Duration get days => Duration(hours: (this * Duration.hoursPerDay).round());
 }
