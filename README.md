@@ -10,7 +10,7 @@ Easily split Date only fields and deal with them.
 Add to your dependencies:
 ```dart
 dependencies:
-    date_only_field: ^0.0.1
+    date_only_field: ^0.0.3
 ```
 Import the package:
 ```dart
@@ -20,6 +20,34 @@ import 'package:date_only_field/date_only_field.dart';
 ## Usage
 
 ```dart
+Date now = Date.now();
+Date yesterday = now - 1.days;
+Date tomorrow = now + 1.days;
+
+print('now = $now');
+print('yesterday = $yesterday');
+print('tomorrow = $tomorrow');
+print('tomorrow > yesterday : ${tomorrow > yesterday}');
+print('now == Date.now() : ${now == Date.now()}');
+print('now first Day Of this Month: ${now.firstDayOfMonth}');
+print('now first Day Of this Week: ${now.firstDayOfWeek}');
+print('now last Day Of this Month: ${now.lastDayOfMonth}');
+```
+output:
+```
+now = 05-11-2022
+yesterday = 04-11-2022
+tomorrow = 06-11-2022
+tomorrow > yesterday : true
+now == Date.now() : true
+now first Day Of this Month: 01-11-2022
+now first Day Of this Week: 30-10-2022
+now last Day Of this Month: 30-11-2022
+```
+
+## Helpers
+```dart
+
 /// Constructors
 Date(int year, [int month = 1, int day = 1]);
 Date.withFields({required int year, int month = 1, int day = 1}) : this(year, month, day);
