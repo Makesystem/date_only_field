@@ -1,11 +1,14 @@
-name: date_field
+name: date_only_field
 description: A Date only flutter field (Pure dart)
-version: 0.0.1
-homepage:
+version: 0.0.2
+
+repository: "https://github.com/a7mdragab/date_only_field"
+homepage: "https://github.com/a7mdragab/date_only_field"
+
 
 environment:
-  sdk: '>=2.19.0-362.0.dev <3.0.0'
-  flutter: ">=1.17.0"
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=2.11.0"
 
 dependencies:
   flutter:

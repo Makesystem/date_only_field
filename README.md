@@ -10,11 +10,11 @@ Easily split Date only fields and deal with them.
 Add to your dependencies:
 ```dart
 dependencies:
-    flutter_datetime_picker: ^0.0.1
+    date_only_field: ^0.0.1
 ```
 Import the package:
 ```dart
-import 'package:date_field/date_field.dart';
+import 'package:date_only_field/date_only_field.dart';
 ```
 
 ## Usage
