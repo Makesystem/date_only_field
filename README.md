@@ -10,7 +10,7 @@ Easily split Date only fields and deal with them.
 Add to your dependencies:
 ```dart
 dependencies:
-    date_only_field: ^0.0.3
+    date_only_field: ^0.0.4
 ```
 Import the package:
 ```dart
@@ -33,7 +33,7 @@ print('now first Day Of this Month: ${now.firstDayOfMonth}');
 print('now first Day Of this Week: ${now.firstDayOfWeek}');
 print('now last Day Of this Month: ${now.lastDayOfMonth}');
 ```
-output:
+Output:
 ```
 now = 05-11-2022
 yesterday = 04-11-2022
