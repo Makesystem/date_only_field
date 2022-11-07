@@ -10,7 +10,7 @@ Easily split Date only fields and deal with them.
 Add to your dependencies:
 ```dart
 dependencies:
-    date_only_field: ^0.0.6
+    date_only_field: ^0.0.7
 ```
 Import the package:
 ```dart

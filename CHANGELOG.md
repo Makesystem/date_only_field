@@ -1,3 +1,6 @@
+## 0.0.7
+modify the format function argument
+
 ## 0.0.6
 export the extensions optionally
 

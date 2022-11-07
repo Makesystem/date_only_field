@@ -231,7 +231,7 @@ class Date implements Comparable<Date> {
   /// Returns the localized string representation of this time of day.
   ///
   /// This is a shortcut for [MaterialLocalizations.formatTimeOfDay].
-  String format({String? dateFormat}) {
+  String format([String? dateFormat]) {
     dateFormat ??= Date.defaultDateFormat;
     return DateFormat(dateFormat).format(toDateTime());
   }
