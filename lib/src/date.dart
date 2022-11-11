@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:date_only_field/src/num_extensions.dart';
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class Date implements Comparable<Date> {
@@ -66,7 +67,7 @@ class Date implements Comparable<Date> {
     return Date(year ?? this.year, month ?? this.month, day ?? this.day);
   }
 
-  DateTime toDateTime() => DateTime(year, month, day);
+  DateTime toDateTime([TimeOfDay? time]) => DateTime(year, month, day, (time?.hour ?? 0), (time?.minute ?? 0));
 
   /// The selected year.
   int _year = 0;
