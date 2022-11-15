@@ -74,9 +74,17 @@ int get weekday;
 DateTime toDateTime() => DateTime(year, month, day);
 Date copyWith({int? year, int? month, int? day});
 
-bool isBefore(Date other) === this < other;
-bool isAfter(Date other) === this > other;
-bool isSameAs(Date other) ===bool equals(Date other) === this == other;
+bool isBefore(Date other) === (this < other);
+bool isBeforeOrGreater(Date other) === (this <= other);
+bool isAfter(Date other) === (this > other);
+bool isAfterOrGreater(Date other) === (this >= other);
+bool isSameAs(Date other) === bool equals(Date other) === (this == other);
+
+
+bool operator <(Date other);
+bool operator <=(Date other);
+bool operator >(Date other);
+bool operator >=(Date other);
 
 bool isSameWeek(Date other);
 bool isSameMonth(Date other);

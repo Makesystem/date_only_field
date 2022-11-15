@@ -1,3 +1,10 @@
+## 0.0.10
+Adding utilities
+bool isBeforeOrGreater(Date other);
+bool isAfterOrGreater(Date other);
+bool operator <=(Date other);
+bool operator >=(Date other);
+
 ## 0.0.9
 update toDateTime to take TimeOfDay? argument
 

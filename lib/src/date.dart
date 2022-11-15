@@ -164,12 +164,22 @@ class Date implements Comparable<Date> {
     return year < other.year || month < other.month || day < other.day;
   }
 
+  bool isBeforeOrGreater(Date other) {
+    return year <= other.year || month <= other.month || day <= other.day;
+  }
+
   bool isAfter(Date other) {
     return year > other.year || month > other.month || day > other.day;
   }
 
+  bool isAfterOrGreater(Date other) {
+    return year >= other.year || month >= other.month || day >= other.day;
+  }
+
   bool operator <(Date other) => isBefore(other);
+  bool operator <=(Date other) => isBeforeOrGreater(other);
   bool operator >(Date other) => isAfter(other);
+  bool operator >=(Date other) => isAfterOrGreater(other);
 
   @override
   bool operator ==(Object other) {
