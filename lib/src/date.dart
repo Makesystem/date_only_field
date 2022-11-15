@@ -161,25 +161,61 @@ class Date implements Comparable<Date> {
   }
 
   bool isBefore(Date other) {
-    return year < other.year || month < other.month || day < other.day;
+    if (year < other.year) {
+      return true;
+    } else if (year == other.year) {
+      if (month < other.month) {
+        return true;
+      } else if (month == other.month) {
+        return day < other.day;
+      }
+    }
+    return false;
   }
 
-  bool isBeforeOrGreater(Date other) {
-    return year <= other.year || month <= other.month || day <= other.day;
+  bool isEqualOrBefore(Date other) {
+    if (year < other.year) {
+      return true;
+    } else if (year == other.year) {
+      if (month < other.month) {
+        return true;
+      } else if (month == other.month) {
+        return day <= other.day;
+      }
+    }
+    return false;
   }
 
   bool isAfter(Date other) {
-    return year > other.year || month > other.month || day > other.day;
+    if (year > other.year) {
+      return true;
+    } else if (year == other.year) {
+      if (month > other.month) {
+        return true;
+      } else if (month == other.month) {
+        return day > other.day;
+      }
+    }
+    return false;
   }
 
-  bool isAfterOrGreater(Date other) {
-    return year >= other.year || month >= other.month || day >= other.day;
+  bool isEqualOrAfter(Date other) {
+    if (year > other.year) {
+      return true;
+    } else if (year == other.year) {
+      if (month > other.month) {
+        return true;
+      } else if (month == other.month) {
+        return day >= other.day;
+      }
+    }
+    return false;
   }
 
   bool operator <(Date other) => isBefore(other);
-  bool operator <=(Date other) => isBeforeOrGreater(other);
+  bool operator <=(Date other) => isEqualOrBefore(other);
   bool operator >(Date other) => isAfter(other);
-  bool operator >=(Date other) => isAfterOrGreater(other);
+  bool operator >=(Date other) => isEqualOrAfter(other);
 
   @override
   bool operator ==(Object other) {

@@ -11,7 +11,7 @@ Add to your dependencies:
 ````dart
 dependencies:
     
-    date_only_field: ^0.0.11
+    date_only_field: ^0.0.12
 ````
 Import the package:
 ```dart

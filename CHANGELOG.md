@@ -1,12 +1,22 @@
 ## 0.0.11
+Fixing comparing functions
+```
+bool isEqualOrBefore(Date other);
+bool isEqualOrAfter(Date other);
+bool operator <=(Date other);
+bool operator >=(Date other);
+```
+
+
+## 0.0.11
 Adding ``String formatWithDateFormat([DateFormat? dateFormat]);``
 
 
 ## 0.0.10
 Adding utilities
 ```
-bool isBeforeOrGreater(Date other);
-bool isAfterOrGreater(Date other);
+bool isEqualOrBefore(Date other);
+bool isEqualOrAfter(Date other);
 bool operator <=(Date other);
 bool operator >=(Date other);
 ```
