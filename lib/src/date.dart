@@ -247,6 +247,11 @@ class Date implements Comparable<Date> {
     return DateFormat(dateFormat).format(toDateTime());
   }
 
+  String formatWithDateFormat([DateFormat? dateFormat]) {
+    dateFormat ??= DateFormat(Date.defaultDateFormat);
+    return dateFormat.format(toDateTime());
+  }
+
   String get formatMonth => _monthFormat.format(toDateTime());
   String get formatMonthOnly => _monthOnlyFormat.format(toDateTime());
   String get formatDay => _dayFormat.format(toDateTime());

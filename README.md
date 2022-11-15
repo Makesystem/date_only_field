@@ -10,7 +10,8 @@ Easily split Date only fields and deal with them.
 Add to your dependencies:
 ````dart
 dependencies:
-    date_only_field: ^0.0.9
+    
+    date_only_field: ^0.0.11
 ````
 Import the package:
 ```dart
@@ -71,6 +72,10 @@ int get microsecondsSinceEpoch;
 int get weekday;
 
 ///Helpers
+
+String format([String? dateFormat]);
+String formatWithDateFormat([DateFormat? dateFormat]);
+
 DateTime toDateTime() => DateTime(year, month, day);
 Date copyWith({int? year, int? month, int? day});
 

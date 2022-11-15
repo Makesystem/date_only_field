@@ -1,7 +1,7 @@
 name: date_only_field
 description: A Date only flutter field (Pure dart). It helps with splitting the datetime object to date and time fields to be picked easily and saved to database separated for easy queries.
 
-version: 0.0.10
+version: 0.0.11
 
 repository: "https://github.com/a7mdragab/date_only_field"
 homepage: "https://pub.dev/packages/date_only_field"
