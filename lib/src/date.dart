@@ -33,11 +33,14 @@ class Date implements Comparable<Date> {
         _month = dateTime.month,
         _day = dateTime.day;
 
-  /// Creates a time of day based on the current time.
-  ///
-  /// The [year] is set to the current hour and the [month] is set to the
-  /// current minute in the local time zone.
+  /// Creates a day date based on the current time.
   factory Date.now() => Date.fromDateTime(DateTime.now());
+
+  /// Creates a tomorrow date based on the current time.
+  factory Date.tomorrow() => Date.fromDateTime(DateTime.now().add(1.days));
+
+  /// Creates a yesterday date based on the current time.
+  factory Date.yesterday() => Date.fromDateTime(DateTime.now().subtract(1.days));
 
   static Date parse(String formattedString, {String? dateFormat}) {
     dateFormat ??= Date.defaultDateFormat;
@@ -156,6 +159,7 @@ class Date implements Comparable<Date> {
     return result;
   }
 
+  /// Whether or not two times are on the same month.
   bool isSameMonth(Date other) {
     return month == other.month;
   }
@@ -212,6 +216,21 @@ class Date implements Comparable<Date> {
     return false;
   }
 
+  /// is equal to the next day
+  bool get isTomorrow => equals(Date.tomorrow());
+
+  /// is equal to the same day
+  bool get isToday => equals(Date.now());
+
+  /// is equal to the last day
+  bool get isYesterday => equals(Date.yesterday());
+
+  /// is after now
+  bool get isFuture => isAfter(Date.now());
+
+  /// is before now
+  bool get isPast => isBefore(Date.now());
+
   bool operator <(Date other) => isBefore(other);
   bool operator <=(Date other) => isEqualOrBefore(other);
   bool operator >(Date other) => isAfter(other);
@@ -227,10 +246,12 @@ class Date implements Comparable<Date> {
     return year == other.year && month == other.month && day == other.day;
   }
 
+  /// Whether or not two times are on the same day. === isSameAs(other)
   bool equals(Date other) => isSameAs(other);
 
   Date operator +(dynamic other) => add(other);
 
+  /// Add 2 dates
   Date add(dynamic other) {
     if (other is Date) {
       return Date(year + other.year, (month) + (other.month), (day) + (other.day));
@@ -246,6 +267,7 @@ class Date implements Comparable<Date> {
 
   Date operator -(dynamic other) => subtract(other);
 
+  /// subtract 2 dates
   Date subtract(dynamic other) {
     if (other is Date) {
       return Date(year - other.year, (month) - (other.month), max(1, (day) - (other.day)));
@@ -259,6 +281,7 @@ class Date implements Comparable<Date> {
     return this;
   }
 
+  /// Get difference duration between 2 dates
   Duration difference(dynamic other) {
     if (other is Date) {
       return toDateTime().difference(other.toDateTime());
@@ -288,11 +311,22 @@ class Date implements Comparable<Date> {
     return dateFormat.format(toDateTime());
   }
 
+  /// MMMM yyyy
   String get formatMonth => _monthFormat.format(toDateTime());
+
+  /// MMMM
   String get formatMonthOnly => _monthOnlyFormat.format(toDateTime());
+
+  /// dd
   String get formatDay => _dayFormat.format(toDateTime());
+
+  /// MMM dd
   String get formatFirstDay => _firstDayFormat.format(toDateTime());
+
+  /// EEE MMM dd, yyyy
   String get formatFullDay => _fullDayFormat.format(toDateTime());
+
+  /// yyyy-MM-dd
   String get formatApiDay => _apiDayFormat.format(toDateTime());
 
   /// The last day of a given month

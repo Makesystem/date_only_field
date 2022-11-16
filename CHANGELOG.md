@@ -1,4 +1,17 @@
-## 0.0.11
+## 0.0.13
+Update example project and adding functions
+```
+Date.tomorrow();
+Date.yesterday();
+bool get isTomorrow;
+bool get isToday;
+bool get isYesterday;
+bool get isFuture;
+bool get isPast;
+```
+
+
+## 0.0.12
 Fixing comparing functions
 ```
 bool isEqualOrBefore(Date other);

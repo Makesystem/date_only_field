@@ -5,13 +5,16 @@ It is almost the same logic as DateTime but without the time part
 
 Easily split Date only fields and deal with them. 
 
+![Features example](1.png)
+![Features example](2.png)
+
 ## Getting started
 
 Add to your dependencies:
 ````dart
 dependencies:
     
-    date_only_field: ^0.0.12
+    date_only_field: ^0.0.13
 ````
 Import the package:
 ```dart
@@ -61,6 +64,8 @@ Date(int year, [int month = 1, int day = 1]);
 Date.withFields({required int year, int month = 1, int day = 1}) : this(year, month, day);
 Date.fromDateTime(DateTime dateTime);
 Date.now();
+Date.tomorrow();
+Date.yesterday();
 Date.parse(String formattedString, {String? dateFormat});
 Date.tryParse(String formattedString);
 Date.fromMillisecondsSinceEpoch(int millisecondsSinceEpoch, {bool isUtc = false});
@@ -79,12 +84,17 @@ String formatWithDateFormat([DateFormat? dateFormat]);
 DateTime toDateTime() => DateTime(year, month, day);
 Date copyWith({int? year, int? month, int? day});
 
-bool isBefore(Date other) === (this < other);
-bool isBeforeOrGreater(Date other) === (this <= other);
-bool isAfter(Date other) === (this > other);
-bool isAfterOrGreater(Date other) === (this >= other);
-bool isSameAs(Date other) === bool equals(Date other) === (this == other);
+bool get isTomorrow;
+bool get isToday;
+bool get isYesterday;
+bool get isFuture;
+bool get isPast;
 
+bool isBefore(Date other) === (this < other);
+bool isEqualOrBefore(Date other) === (this <= other);
+bool isAfter(Date other) === (this > other);
+bool isEqualOrAfter(Date other) === (this >= other);
+bool isSameAs(Date other) === bool equals(Date other) === (this == other);
 
 bool operator <(Date other);
 bool operator <=(Date other);
