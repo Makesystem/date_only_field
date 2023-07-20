@@ -1,3 +1,6 @@
+## 0.0.14
+Update dependencies
+
 ## 0.0.13
 Update example project and adding functions
 ```
