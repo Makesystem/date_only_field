@@ -8,13 +8,13 @@ homepage: "https://pub.dev/packages/date_only_field"
 
 
 environment:
-  sdk: ">=2.14.0 <3.0.0"
-  flutter: ">=2.11.0"
+  sdk: '>=3.3.3 <4.0.0'
+  flutter: ">=3.22.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  intl: ^0.18.1
+  intl: any
 
 dev_dependencies:
   flutter_test:
